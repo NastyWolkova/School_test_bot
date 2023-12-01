@@ -3,8 +3,8 @@ from fsmstatus import FSMStatus
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message, CallbackQuery
 from aiogram.filters import or_f
-from lexicon.lexicon import tasks_log, tasks_rus, answers, users 
-import datetime, time
+from lexicon.lexicon import tasks_log, answers, users 
+import datetime
 from keyboards import keyboard_cancel, keyboard_rus
 from functions import conv_time
 
@@ -24,7 +24,7 @@ async def process_button_4_press(callback: CallbackQuery, state: FSMContext):
     await state.set_state(FSMStatus.status_log_in)
     await callback.message.answer(f'У вас 3 минуты на решение всех заданий.\nПервое задание: \n{tasks_log[1][0]}')
     await callback.message.answer(text='Вы можете остановить тестирование.', 
-                                      reply_markup=keyboard_cancel)
+                                    reply_markup=keyboard_cancel)
 
 #for logic tasks
 @router.message(lambda x: x.text.isdigit(), FSMStatus.status_log_in)
@@ -35,8 +35,8 @@ async def get_answer(message: Message, state: FSMContext):
         #очистить состояния, вывести инлайн клавиатуру Другой предмет и Завершить
         await state.clear()
         await message.answer(text='Вы можете запустить тестирование по другому предмету',
-                             reply_markup=keyboard_rus
-                          ) 
+                            reply_markup=keyboard_rus
+                            ) 
     else:
         answer = message.text
         #add in dict users answers of user and true/false
@@ -52,21 +52,21 @@ async def get_answer(message: Message, state: FSMContext):
                                 f'\nВремя тестирования: {conv_time(elapsed_time)}')
             await state.clear()
             await message.answer(text='Вы можете запустить тестирование по другому предмету',
-                             reply_markup=keyboard_rus
-                          ) 
+                                reply_markup=keyboard_rus
+                                ) 
         else:
             #send next task
             users[message.from_user.id]['current_task'] += 1
             await message.answer(f'{answers["next_task"]} {users[message.from_user.id]["current_task"]}:\n{tasks_log[users[message.from_user.id]["current_task"]][0]}'
                                 f'\nУ вас осталось: {conv_time(spare_time)}')
             await message.answer(text='Вы можете остановить тестирование без результата.', 
-                                      reply_markup=keyboard_cancel)
+                                reply_markup=keyboard_cancel)
 
 #случайные текстовые сообщения при тестировании по Логике            
 @router.message(F.text, FSMStatus.status_log_in)
 async def get_answer(message: Message):     
     await message.answer(text='Вы находитесь в стадии тестирования. \nОтветы на задания по Логике принимаются в виде числа.')
     await message.answer(text='Вы можете остановить тестирование без результата.', 
-                                      reply_markup=keyboard_cancel)       
+                        reply_markup=keyboard_cancel)       
                     
 

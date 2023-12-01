@@ -1,9 +1,8 @@
 import asyncio
 from aiogram.fsm.storage.memory import MemoryStorage
 from aiogram import Bot, Dispatcher
-from config_data.config import Config, load_config
+from config import Config, load_config
 from all_handlers import out_test, in_test_rus, in_test_log 
-
 
 
 async def main():

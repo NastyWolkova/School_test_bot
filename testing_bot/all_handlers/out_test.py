@@ -1,8 +1,8 @@
 from aiogram import Router, F
 from aiogram.fsm.context import FSMContext
 from aiogram.fsm.state import default_state
-from aiogram.filters import Command, CommandStart, StateFilter, or_f, Text
-from aiogram.types import Message, CallbackQuery
+from aiogram.filters import Command, CommandStart, StateFilter, or_f
+from aiogram.types import Message, CallbackQuery, ReplyKeyboardMarkup
 from keyboards import keyboard_choice, keyboard_start, keyboard_cancel, keyboard_start_mini
 from fsmstatus import FSMStatus
 from lexicon.lexicon import users
@@ -15,6 +15,10 @@ router: Router = Router()
 @router.message(CommandStart(), StateFilter(default_state))
 async def command_start(message: Message):
     await message.delete()
+    await message.answer(
+        text='удаление завершить',
+        reply_markup=ReplyKeyboardMarkup()
+    )
     await message.answer(
         text='Выберите предмет',
         reply_markup=keyboard_choice
