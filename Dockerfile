@@ -1,6 +1,6 @@
 FROM python:3.10
 
-WORKDIR  /app
+WORKDIR  /testing_bot
 
 COPY  ./requirements.txt ./
 
@@ -12,6 +12,11 @@ RUN chmod 755 .
 
 COPY /. /.
 
+ENV BOT_TOKEN1 5542755585:AAFK2-CFMA2f2TcqUOPT92au2e-GsqvtSjE
+
+ENV ADMIN_IDS 1956887504
+
+CMD [ "python", "bot.py" ] 
 
 
 

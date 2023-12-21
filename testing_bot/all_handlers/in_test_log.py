@@ -22,7 +22,7 @@ async def process_button_4_press(callback: CallbackQuery, state: FSMContext):
     users[callback.from_user.id]['start'] = dt1
     users[callback.from_user.id]['finish'] = dt2
     await state.set_state(FSMStatus.status_log_in)
-    await callback.message.answer(f'У вас 3 минуты на решение всех заданий.\nПервое задание: \n{tasks_log[1][0]}')
+    await callback.message.answer(f'Все задания должны быть пройдены за 3 минуты. Ответы принимаются в числовом виде.\nПервое задание: \n{tasks_log[1][0]}')
     await callback.message.answer(text='Вы можете остановить тестирование.', 
                                     reply_markup=keyboard_cancel)
 

@@ -14,11 +14,11 @@ router: Router = Router()
 #команда старт незарегистрированному юзеру(без состояния)
 @router.message(CommandStart(), StateFilter(default_state))
 async def command_start(message: Message):
-    await message.delete()
-    await message.answer(
-        text='удаление завершить',
-        reply_markup=ReplyKeyboardMarkup()
-    )
+    # await message.delete()
+    # await message.answer(
+    #     text='удаление завершить',
+    #     reply_markup=ReplyKeyboardMarkup()
+    # )
     await message.answer(
         text='Выберите предмет',
         reply_markup=keyboard_choice
