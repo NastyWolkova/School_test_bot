@@ -85,7 +85,9 @@ async def process_button_2_press(callback: CallbackQuery, state: FSMContext):
                                     'total_score': 0,
                                      1: tuple(),
                                      2: tuple(),
-                                     3: tuple()
+                                     3: tuple(),
+                                     4: tuple(),
+                                     5: tuple()
                                     }
     await callback.message.delete()
     await state.set_state(FSMStatus.status_log)
@@ -96,7 +98,7 @@ async def process_button_2_press(callback: CallbackQuery, state: FSMContext):
 
 #кнопка Правила при выбранном предмете
 @router.callback_query(F.data == 'rules_pressed')
-async def process_button_1_press(callback: CallbackQuery):
+async def process_button_3_press(callback: CallbackQuery):
     await callback.message.delete()
     if users[callback.from_user.id]['subject'] == 'rus':
         await callback.message.answer(
