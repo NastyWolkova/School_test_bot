@@ -1,6 +1,6 @@
 FROM python:3.10
 
-WORKDIR  /school_bot
+WORKDIR  /school_test_bot
 
 COPY  ./requirements.txt ./
 
