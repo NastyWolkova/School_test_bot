@@ -11,10 +11,6 @@ async def main():
     #logging.basicConfig(
         #format='%(filename)s:%(lineno)d #%(levelname)-8s '
                 #'[%(asctime)s] - %(name)s - %(message)s')
-    #file_handler = logging.FileHandler('logs.log', mode= 'a')
-    #file_handler.setFormatter(format)
-    #logger.addHandler(file_handler)
-    #logger.warning('Это лог с предупреждением!')
     
     storage = MemoryStorage()
     # Загружаем конфиг в переменную config
