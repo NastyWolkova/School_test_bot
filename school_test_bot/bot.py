@@ -22,7 +22,7 @@ async def main():
 
     # Регистриуем роутеры в диспетчере
     dp.include_router(out_test.router)
-    dp.include_router(in_test_rus.router)
+    dp.include_router(in_test_rus.router) 
     dp.include_router(in_test_log.router)
 
     # Пропускаем накопившиеся апдейты и запускаем polling

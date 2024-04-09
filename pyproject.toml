@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.10"
 aiogram = "3.0b7"
 environs = "^9.5.0"
+pillow = "^10.3.0"
 
 
 [build-system]

@@ -113,16 +113,21 @@ async def get_answer(message: Message, state: FSMContext):
                                 reply_markup=keyboard_rus
                                 ) 
         else:
+            
             #send next task
             users[message.from_user.id]['current_task'] += 1
-            #file_ids: list = []
+            file_ids: list = []
             if users[message.from_user.id]['current_task'] == 4:
-                image_1 = FSInputFile("school_test_bot/all_handlers/ABCD.png")
+                image_1 = FSInputFile("school_test_bot/pictures/KOD.png")
                 result = await message.answer_photo(image_1, caption=f'{answers["next_task"]} {users[message.from_user.id]["current_task"]}:\n{tasks_log[users[message.from_user.id]["current_task"]][0]}\
-                                                    \nУ вас осталось: {conv_time(spare_time)}')###########
-            #file_ids.append(result.photo[-1].file_id) 
+                                                    \nУ вас осталось: {conv_time(spare_time)}')
+                #await message.answer_photo(photo=FSInputFile('ABCD.png', 'rb'), caption=f'{answers["next_task"]} {users[message.from_user.id]["current_task"]}:\n{tasks_log[users[message.from_user.id]["current_task"]][0]}\
+                                            #\nУ вас осталось: {conv_time(spare_time)}')###########
+                file_ids.append(result.photo[-1].file_id)
+
+                 
             else: 
-                image_2 = FSInputFile("school_test_bot/all_handlers/KOD.png")
+                image_2 = FSInputFile("school_test_bot/pictures/KOD.png")
                 result = await message.answer_photo(image_2, caption=f'{answers["next_task"]} {users[message.from_user.id]["current_task"]}:\n{tasks_log[users[message.from_user.id]["current_task"]][0]}\
                                 \nУ вас осталось: {conv_time(spare_time)}')    
             #await message.answer(f'{answers["next_task"]} {users[message.from_user.id]["current_task"]}:\n{tasks_log[users[message.from_user.id]["current_task"]][0]}'
