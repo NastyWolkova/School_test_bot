@@ -16,14 +16,14 @@ router: Router = Router()
 async def process_button_4_press(callback: CallbackQuery, state: FSMContext):
     await callback.message.delete()
     dt1 = datetime.datetime.today()
-    dt2 = dt1 + datetime.timedelta(minutes=3)
+    dt2 = dt1 + datetime.timedelta(minutes=40)
     users[callback.from_user.id]['current_task'] = 1
     users[callback.from_user.id]['start'] = dt1
     users[callback.from_user.id]['finish'] = dt2
     await state.set_state(FSMStatus.status_rus_1)
     users[callback.from_user.id]['first_q'] = []
     #await callback.message.answer(f'У вас 3 минуты на решение всех заданий.\nПервое задание: \n{tasks_rus[1][0][0]}')
-    await callback.message.answer(f'У вас 3 минуты на решение всех заданий.\nПервое задание: \n{tasks_rus[1][0][0]}',
+    await callback.message.answer(f'У вас 40 минут на решение всех заданий.\nПервое задание: \n{tasks_rus[1][0][0]}',
                                     reply_markup=keybord_rus_tasks[0][0])
     
 #решение СОСТАВНОГО ПЕРВОГО задания, при получении верных ответов

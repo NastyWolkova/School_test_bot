@@ -16,12 +16,12 @@ router: Router = Router()
 async def process_button_4_press(callback: CallbackQuery, state: FSMContext):
     await callback.message.delete()
     dt1 = datetime.datetime.today()
-    dt2 = dt1 + datetime.timedelta(minutes=3)
+    dt2 = dt1 + datetime.timedelta(minutes=60)
     users[callback.from_user.id]['current_task'] = 1
     users[callback.from_user.id]['start'] = dt1
     users[callback.from_user.id]['finish'] = dt2
     await state.set_state(FSMStatus.status_log_12)
-    await callback.message.answer(f'Все задания должны быть пройдены за 3 минуты. Ответы принимаются в числовом виде.\nПервое задание: \n{tasks_log[1][0]}', 
+    await callback.message.answer(f'Все задания должны быть пройдены за 60 минут. Ответы принимаются в числовом виде.\nПервое задание: \n{tasks_log[1][0]}', 
                                   reply_markup=keyboard_log_tasks[0])
     #await callback.message.answer(text='Вы можете остановить тестирование.', 
                                     #reply_markup=keyboard_cancel)
