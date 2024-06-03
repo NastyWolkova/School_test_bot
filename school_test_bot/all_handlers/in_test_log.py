@@ -118,7 +118,7 @@ async def get_answer(message: Message, state: FSMContext):
             users[message.from_user.id]['current_task'] += 1
             file_ids: list = []
             if users[message.from_user.id]['current_task'] == 4:
-                image_1 = FSInputFile("school_test_bot/pictures/KOD.png")
+                image_1 = FSInputFile("school_test_bot/pictures/ABCD.png")
                 result = await message.answer_photo(image_1, caption=f'{answers["next_task"]} {users[message.from_user.id]["current_task"]}:\n{tasks_log[users[message.from_user.id]["current_task"]][0]}\
                                                     \nУ вас осталось: {conv_time(spare_time)}')
                 #await message.answer_photo(photo=FSInputFile('ABCD.png', 'rb'), caption=f'{answers["next_task"]} {users[message.from_user.id]["current_task"]}:\n{tasks_log[users[message.from_user.id]["current_task"]][0]}\
