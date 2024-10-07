@@ -1,17 +1,17 @@
 FROM python:3.10
 
-WORKDIR  /app
+WORKDIR  /school_test_bot
 
 #копирование файла с зависимостями
-COPY  requirements.txt requirements.txt    
+COPY  ./requirements.txt ./    
 
 #установка зависимостей
 RUN pip3 install --upgrade setuptools && pip3 install -r ./requirements.txt
 
 RUN chmod 755 .
 
-COPY  ./school_test_bot/pictures ./app/pictures
+COPY  ./school_test_bot/pictures ./school_test_bot/pictures
 
-COPY . .
+COPY /. /.
 
 CMD [ "python", "bot.py" ] 
