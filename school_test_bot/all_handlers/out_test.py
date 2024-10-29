@@ -15,12 +15,8 @@ router: Router = Router()
 @router.message(CommandStart(), StateFilter(default_state))
 async def command_start(message: Message):
     # await message.delete()
-    # await message.answer(
-    #     text='удаление завершить',
-    #     reply_markup=ReplyKeyboardMarkup()
-    # )
     await message.answer(
-        text='Выберите предмет',
+        text='Вы можете пройти пробное тестирование. \nВыберите предмет, чтобы узнать правила или запустить тестирование.',
         reply_markup=keyboard_choice
     )
 
@@ -73,7 +69,7 @@ async def process_button_1_press(callback: CallbackQuery, state: FSMContext):
     await callback.message.delete()
     await state.set_state(FSMStatus.status_rus)
     await callback.message.answer(
-        text='Вы выбрали тестирование \nпо Русскому языку: \nначните его или узнайте правила',
+        text='Вы выбрали тестирование \nпо Русскому языку, \nначните его или узнайте правила',
         reply_markup=keyboard_start
     )
     
@@ -92,7 +88,7 @@ async def process_button_2_press(callback: CallbackQuery, state: FSMContext):
     await callback.message.delete()
     await state.set_state(FSMStatus.status_log)
     await callback.message.answer(
-        text='Вы выбрали тестирование \nпо Логике: \nначните его или узнайте правила',
+        text='Вы выбрали тестирование \nпо Логике, \nначните его или узнайте правила',
         reply_markup=keyboard_start
     )
 

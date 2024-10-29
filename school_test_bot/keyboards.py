@@ -1,7 +1,7 @@
 from aiogram.types import (InlineKeyboardButton, Message, InlineKeyboardMarkup, ReplyKeyboardMarkup, KeyboardButton)
 
 #кнопки общего назначения
-button_1 = InlineKeyboardButton(text='Русский 5 класс', callback_data='rus_pressed')
+button_1 = InlineKeyboardButton(text='Русский язык 5 класс', callback_data='rus_pressed')
 button_2 = InlineKeyboardButton(text='Логика', callback_data='log_pressed')
 button_3 = InlineKeyboardButton(text='Правила', callback_data='rules_pressed')
 button_4 = InlineKeyboardButton(text='Начать', callback_data='start_pressed')
@@ -25,7 +25,7 @@ button_12_3 = InlineKeyboardButton(text='ЛИСИЙ-', callback_data='false')
 button_13_1 = InlineKeyboardButton(text='не имеет', callback_data='false')
 button_13_2 = InlineKeyboardButton(text='-С-', callback_data='false')
 button_13_3 = InlineKeyboardButton(text='-ИЙ-', callback_data='true')
-button_14_1 = InlineKeyboardButton(text='не имеет', callback_data='true')
+button_14_1 = InlineKeyboardButton(text='нулевое', callback_data='true')
 button_14_2 = InlineKeyboardButton(text='-ИЙ', callback_data='false')
 button_14_3 = InlineKeyboardButton(text='-Й', callback_data='false')
 

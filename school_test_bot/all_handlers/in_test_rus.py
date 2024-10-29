@@ -23,7 +23,7 @@ async def process_button_4_press(callback: CallbackQuery, state: FSMContext):
     await state.set_state(FSMStatus.status_rus_1)
     users[callback.from_user.id]['first_q'] = []
     #await callback.message.answer(f'У вас 3 минуты на решение всех заданий.\nПервое задание: \n{tasks_rus[1][0][0]}')
-    await callback.message.answer(f'У вас 40 минут на решение всех заданий.\nПервое задание: \n{tasks_rus[1][0][0]}',
+    await callback.message.answer(f'Продолжительность - не более 40 мин.\n\n<i>Задача №1:</i> \n{tasks_rus[1][0][0]}',
                                     reply_markup=keybord_rus_tasks[0][0])
     
 #решение СОСТАВНОГО ПЕРВОГО задания, при получении верных ответов
